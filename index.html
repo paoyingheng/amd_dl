@@ -7532,8 +7532,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Problem-statement"><strong>2. Problem statement</strong><a class="anchor-link" href="#2.-Problem-statement">¶</a></h2><p>Age-related Macular Degeneration (AMD) affects millions globally, leading to vision loss and blindness, particularly in older adult$^1$. Early detection is crucial for preventing severe impairment, but current diagnostic methods heavily rely on expert ophthalmologists and specialized imaging tools, which are not always widely accessible$^1$.</p>
-<h3 id="Objective">Objective<a class="anchor-link" href="#Objective">¶</a></h3><p>This project aims to assist in the detection and diagnosis of AMD by automating the classification of OCT images into three categories: Dry AMD, Wet AMD, and Normal. By leveraging machine learning, this tool seeks to support ophthalmologists in early diagnosis, ultimately improving patient outcomes and facilitating timely intervention.</p>
+<h2 id="2.-Problem-statement"><strong>2. Problem statement</strong><a class="anchor-link" href="#2.-Problem-statement">¶</a></h2><p>Age-related Macular Degeneration (AMD) affects millions globally, leading to vision loss and blindness, particularly in older adult$^1$. Early detection is crucial for preventing severe impairment, but current diagnostic methods heavily rely on expert ophthalmologists and specialized imaging tools, which are not always widely accessible.</p>
+<h3 id="Objective">Objective<a class="anchor-link" href="#Objective">¶</a></h3><p>This project aims to assist in the detection and diagnosis of AMD by automating the classification of OCT images into three categories: Dry AMD, Wet AMD, and Normal. By using machine learning, this tool seeks to support ophthalmologists in early diagnosis, ultimately improving patient outcomes and facilitating timely intervention.</p>
 </div>
 </div>
 </div>
@@ -7544,8 +7544,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Live-demo"><strong>3. Live demo</strong><a class="anchor-link" href="#3.-Live-demo">¶</a></h2><p>The live demo of the model can be accessed on Hugging Face Spaces via the following <a href="https://huggingface.co/spaces/paoyingheng/amd_yolov8"><strong>link</strong>.</a></p>
-<p><img alt="No description has been provided for this image" src="screenshot.png" style="border: 1px solid black"/>
+<h2 id="3.-Demo"><strong>3. Demo</strong><a class="anchor-link" href="#3.-Demo">¶</a></h2><p>The live demo of the model can be accessed on Hugging Face Spaces via the following <a href="https://huggingface.co/spaces/paoyingheng/amd_yolov8"><strong>link</strong>.</a></p>
+<p>Screenshot of the demo page:
+<img alt="No description has been provided for this image" src="screenshot.png" style="border: 1px solid black"/>
 In this demo, users can:</p>
 <ul>
 <li>Upload OCT images of retinas.</li>
@@ -7562,10 +7563,10 @@ In this demo, users can:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Dataset"><strong>4. Dataset</strong><a class="anchor-link" href="#4.-Dataset">¶</a></h2><h3 id="Dataset-source">Dataset source<a class="anchor-link" href="#Dataset-source">¶</a></h3><p>The dataset used for this project was obtained from the following source: <a href="https://universe.roboflow.com/eye-disease-rp/amd-new-oct/dataset/1">AMD OCT Dataset on Roboflow</a>$^2$</p>
-<h3 id="Dataset-details">Dataset details<a class="anchor-link" href="#Dataset-details">¶</a></h3><ul>
+<h2 id="4.-Dataset"><strong>4. Dataset</strong><a class="anchor-link" href="#4.-Dataset">¶</a></h2><h3 id="Source">Source<a class="anchor-link" href="#Source">¶</a></h3><p>The dataset used for this project was obtained from the following source: <a href="https://universe.roboflow.com/eye-disease-rp/amd-new-oct/dataset/1">AMD OCT Dataset on Roboflow</a>$^2$</p>
+<h3 id="Details">Details<a class="anchor-link" href="#Details">¶</a></h3><ul>
 <li>The dataset contains images from patients diagnosed with dry AMD, wet AMD, and normal eyes.</li>
-<li>Preprocessing: Images were resized and split into training, validation, and test sets for model evaluation.</li>
+<li>The images were organized and labeled based on the provided CSV file.</li>
 </ul>
 </div>
 </div>
@@ -7577,21 +7578,23 @@ In this demo, users can:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Methodology"><strong>5. Methodology</strong><a class="anchor-link" href="#5.-Methodology">¶</a></h2><h3 id="i.-Data-preprocessing">i. Data preprocessing<a class="anchor-link" href="#i.-Data-preprocessing">¶</a></h3><p>Before training the model, the dataset was preprocessed as follows:</p>
+<h2 id="5.-Methodology"><strong>5. Methodology</strong><a class="anchor-link" href="#5.-Methodology">¶</a></h2><h3 id="i.-Data-preprocessing">i. Data preprocessing<a class="anchor-link" href="#i.-Data-preprocessing">¶</a></h3><p>The images in the dataset were initially grouped together in a single folder. A CSV file indicated which images corresponded to each class: DRY, WET, and NORMAL. The preprocessing involved the following steps:</p>
+<ol>
+<li>Image organization: The images were first organized into separate folders for each class based on the CSV file. A Python script was used to read the CSV and move the images into their corresponding folders:</li>
+</ol>
 <ul>
-<li><strong>Image standardization</strong>: All images were resized to a uniform resolution (224x224 pixels) to ensure consistency in input dimensions.</li>
-<li><strong>Class labeling</strong>: The dataset was organized into three directories: <strong>Dry AMD</strong>, <strong>Wet AMD</strong>, and <strong>Normal</strong>.</li>
+<li>Dry AMD images were moved to the DRY folder.</li>
+<li>Wet AMD images were moved to the WET folder.</li>
+<li>Normal images were moved to the NORMAL folder.</li>
 </ul>
-<h3 id="ii.-Model-selection-and-training">ii. Model selection and training<a class="anchor-link" href="#ii.-Model-selection-and-training">¶</a></h3><p>I used the <strong>YOLOv8</strong> (You Only Look Once) model, which is highly efficient for object detection tasks but also suitable for image classification. The model was trained on the three classes from the dataset:</p>
-<ul>
-<li><strong>Dry AMD</strong></li>
-<li><strong>Wet AMD</strong></li>
-<li><strong>Normal</strong></li>
-</ul>
+<ol start="2">
+<li>Simplifying image filenames: The original filenames of the images were long and complex. To make them easier to handle during training, the filenames were simplified and renamed sequentially (e.g., img_0.jpg, img_1.jpg, etc.).</li>
+</ol>
+<h3 id="ii.-Model-selection-and-training">ii. Model selection and training<a class="anchor-link" href="#ii.-Model-selection-and-training">¶</a></h3><p>I used the <strong>YOLOv8</strong> (You Only Look Once) model, which is highly efficient for object detection tasks but also suitable for image classification. The model was trained on the three classes from the dataset.</p>
 <p>The training process involved the following steps:</p>
 <ul>
 <li>Loading the pre-trained YOLOv8 model (<code>yolov8n-cls.pt</code>) and fine-tuning it on the AMD dataset.</li>
-<li>Training the model for <strong>50 epochs</strong> with a batch size of <strong>16</strong>.</li>
+<li>Training the model for <strong>50 epochs</strong> with the default batch size and an image size of <strong>224x224</strong>.</li>
 </ul>
 <h3 id="iii.-Evaluation-metrics">iii. Evaluation metrics<a class="anchor-link" href="#iii.-Evaluation-metrics">¶</a></h3><p>The model's performance was evaluated using the following metrics:</p>
 <ul>
@@ -7630,7 +7633,7 @@ In this demo, users can:</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="7.-Deployment"><strong>7. Deployment</strong><a class="anchor-link" href="#7.-Deployment">¶</a></h2><p>The trained YOLOv8 model was deployed using Gradio, a Python library for creating user-friendly interfaces for machine learning models. The interface allows users to upload OCT images and receive predictions on whether the image shows Dry AMD, Wet AMD, or a Normal retina.</p>
-<h3 id="Live-Demo">Live Demo<a class="anchor-link" href="#Live-Demo">¶</a></h3><p>The live demo of the model can be accessed on Hugging Face Spaces via the following <a href="https://huggingface.co/spaces/paoyingheng/amd_yolov8"><strong>link</strong>.</a></p>
+<p>The live demo of the model can be accessed on Hugging Face Spaces via the following <a href="https://huggingface.co/spaces/paoyingheng/amd_yolov8"><strong>link</strong>.</a></p>
 </div>
 </div>
 </div>
@@ -7655,9 +7658,8 @@ In this demo, users can:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-Future-Work"><strong>9. Future Work</strong><a class="anchor-link" href="#9.-Future-Work">¶</a></h2><ul>
-<li>Expand dataset: The model could be further improved by incorporating more diverse OCT images from different populations, different types of AMD, and various imaging cond</li>
-<li>itions.</li>
+<h2 id="9.-Future-work"><strong>9. Future work</strong><a class="anchor-link" href="#9.-Future-work">¶</a></h2><ul>
+<li>Expand dataset: The model could be further improved by incorporating more diverse OCT images from different populations, different types of AMD, and various imaging conditions.</li>
 <li>Model enhancement: Experiment with advanced models like transformers or ensemble methods for potentially better performance.</li>
 <li>Real-world testing: Deploy the model in clinical settings to assess its utility in real-world scenarios and integrate it into diagnostic workflows for ophthalmologists.</li>
 </ul>
