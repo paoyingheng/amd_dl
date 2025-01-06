@@ -7538,13 +7538,31 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2508bc3e-921a-47c1-9771-b451bf191787">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Live-demo"><strong>3. Live demo</strong><a class="anchor-link" href="#3.-Live-demo">¶</a></h2><p>The live demo of the model can be accessed on Hugging Face Spaces via the following <a href="https://huggingface.co/spaces/paoyingheng/amd_yolov8"><strong>link</strong>.</a></p>
+<p><img alt="No description has been provided for this image" src="screenshot.png" style="border: 1px solid black"/>
+In this demo, users can:</p>
+<ul>
+<li>Upload OCT images of retinas.</li>
+<li>Get a prediction with a classification of Dry AMD, Wet AMD, or Normal.</li>
+<li>See the predicted probabilities for each class.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42093355-a776-4c70-80f8-d1a7ac472af5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Dataset"><strong>3. Dataset</strong><a class="anchor-link" href="#3.-Dataset">¶</a></h2><h3 id="Dataset-source">Dataset source<a class="anchor-link" href="#Dataset-source">¶</a></h3><p>The dataset used for this project was obtained from the following source: <a href="https://universe.roboflow.com/eye-disease-rp/amd-new-oct/dataset/1">AMD OCT Dataset on Roboflow</a>$^2$</p>
+<h2 id="4.-Dataset"><strong>4. Dataset</strong><a class="anchor-link" href="#4.-Dataset">¶</a></h2><h3 id="Dataset-source">Dataset source<a class="anchor-link" href="#Dataset-source">¶</a></h3><p>The dataset used for this project was obtained from the following source: <a href="https://universe.roboflow.com/eye-disease-rp/amd-new-oct/dataset/1">AMD OCT Dataset on Roboflow</a>$^2$</p>
 <h3 id="Dataset-details">Dataset details<a class="anchor-link" href="#Dataset-details">¶</a></h3><ul>
 <li>The dataset contains images from patients diagnosed with dry AMD, wet AMD, and normal eyes.</li>
 <li>Preprocessing: Images were resized and split into training, validation, and test sets for model evaluation.</li>
@@ -7559,7 +7577,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Methodology"><strong>4. Methodology</strong><a class="anchor-link" href="#4.-Methodology">¶</a></h2><h3 id="i.-Data-preprocessing">i. Data preprocessing<a class="anchor-link" href="#i.-Data-preprocessing">¶</a></h3><p>Before training the model, the dataset was preprocessed as follows:</p>
+<h2 id="5.-Methodology"><strong>5. Methodology</strong><a class="anchor-link" href="#5.-Methodology">¶</a></h2><h3 id="i.-Data-preprocessing">i. Data preprocessing<a class="anchor-link" href="#i.-Data-preprocessing">¶</a></h3><p>Before training the model, the dataset was preprocessed as follows:</p>
 <ul>
 <li><strong>Image standardization</strong>: All images were resized to a uniform resolution (224x224 pixels) to ensure consistency in input dimensions.</li>
 <li><strong>Class labeling</strong>: The dataset was organized into three directories: <strong>Dry AMD</strong>, <strong>Wet AMD</strong>, and <strong>Normal</strong>.</li>
@@ -7591,7 +7609,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Results-and-performance-analysis"><strong>5. Results and performance analysis</strong><a class="anchor-link" href="#5.-Results-and-performance-analysis">¶</a></h2><h3 id="Training-loss">Training loss<a class="anchor-link" href="#Training-loss">¶</a></h3><p>The training loss showed a rapid decrease in the early epochs, indicating that the model was learning quickly. This is expected as the model adjusts its weights to minimize error. The training loss stabilized after several epochs, suggesting the model had learned the essential features of the images.</p>
+<h2 id="6.-Results-and-performance-analysis"><strong>6. Results and performance analysis</strong><a class="anchor-link" href="#6.-Results-and-performance-analysis">¶</a></h2><h3 id="Training-loss">Training loss<a class="anchor-link" href="#Training-loss">¶</a></h3><p>The training loss showed a rapid decrease in the early epochs, indicating that the model was learning quickly. This is expected as the model adjusts its weights to minimize error. The training loss stabilized after several epochs, suggesting the model had learned the essential features of the images.</p>
 <h3 id="Validation-loss">Validation loss<a class="anchor-link" href="#Validation-loss">¶</a></h3><p>The validation loss also decreased in the beginning but showed some fluctuations later. This could suggest that the model may be starting to overfit as it gets better at the training data but doesn't generalize well to unseen images. However, overall, the validation loss remained stable, indicating that the model's generalization ability was reasonable.</p>
 <h3 id="Top-1-accuracy">Top-1 accuracy<a class="anchor-link" href="#Top-1-accuracy">¶</a></h3><p>The top-1 accuracy metric shows a steady increase during the training process, reaching an accuracy of <strong>~96%</strong>. This suggests that the model was successfully learning to classify OCT images correctly into the three categories (Dry AMD, Wet AMD, and Normal).</p>
 <h3 id="Top-5-accuracy">Top-5 accuracy<a class="anchor-link" href="#Top-5-accuracy">¶</a></h3><p>The top-5 accuracy remained stable around <strong>1.0</strong>, meaning that the model's top predictions were highly relevant, even when the most confident prediction wasn't the correct label. This is a good indicator that the model is very confident in its top predictions.</p>
@@ -7611,14 +7629,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="6.-Deployment"><strong>6. Deployment</strong><a class="anchor-link" href="#6.-Deployment">¶</a></h2><p>The trained YOLOv8 model was deployed using Gradio, a Python library for creating user-friendly interfaces for machine learning models. The interface allows users to upload OCT images and receive predictions on whether the image shows Dry AMD, Wet AMD, or a Normal retina.</p>
+<h2 id="7.-Deployment"><strong>7. Deployment</strong><a class="anchor-link" href="#7.-Deployment">¶</a></h2><p>The trained YOLOv8 model was deployed using Gradio, a Python library for creating user-friendly interfaces for machine learning models. The interface allows users to upload OCT images and receive predictions on whether the image shows Dry AMD, Wet AMD, or a Normal retina.</p>
 <h3 id="Live-Demo">Live Demo<a class="anchor-link" href="#Live-Demo">¶</a></h3><p>The live demo of the model can be accessed on Hugging Face Spaces via the following <a href="https://huggingface.co/spaces/paoyingheng/amd_yolov8"><strong>link</strong>.</a></p>
-<p>In this demo, users can:</p>
-<ul>
-<li>Upload OCT images of retinas.</li>
-<li>Get a prediction with a classification of Dry AMD, Wet AMD, or Normal.</li>
-<li>See the predicted probabilities for each class.</li>
-</ul>
 </div>
 </div>
 </div>
@@ -7629,7 +7641,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.-Challenges-and-limitations"><strong>7. Challenges and limitations</strong><a class="anchor-link" href="#7.-Challenges-and-limitations">¶</a></h2><h3 id="i.-Data-imbalance">i. Data imbalance<a class="anchor-link" href="#i.-Data-imbalance">¶</a></h3><p>The dataset used for training had a roughly equal distribution of images across the three categories: Dry AMD, Wet AMD, and Normal. This balanced distribution helped the model learn to classify the images effectively across all classes. However, it is essential to note that in real-world scenarios, class distributions might not always be balanced, and the model's performance could vary when exposed to skewed datasets.</p>
+<h2 id="8.-Challenges-and-limitations"><strong>8. Challenges and limitations</strong><a class="anchor-link" href="#8.-Challenges-and-limitations">¶</a></h2><h3 id="i.-Data-imbalance">i. Data imbalance<a class="anchor-link" href="#i.-Data-imbalance">¶</a></h3><p>The dataset used for training had a roughly equal distribution of images across the three categories: Dry AMD, Wet AMD, and Normal. This balanced distribution helped the model learn to classify the images effectively across all classes. However, it is essential to note that in real-world scenarios, class distributions might not always be balanced, and the model's performance could vary when exposed to skewed datasets.</p>
 <h3 id="ii.-Overfitting">ii. Overfitting<a class="anchor-link" href="#ii.-Overfitting">¶</a></h3><p>Some fluctuations in the validation loss were observed, which might indicate that the model could be overfitting. This could be mitigated further by using techniques like early stopping, dropout, or adding more data.</p>
 <h3 id="iii.-Generalization">iii. Generalization<a class="anchor-link" href="#iii.-Generalization">¶</a></h3><p>While the model performed well in classifying Dry AMD, Wet AMD, and Normal categories, further testing with a larger, more diverse dataset would be required to ensure the model generalizes well to new cases, different imaging conditions, and patient populations.</p>
 <h3 id="iv.-Real-world-variability">iv. Real-world variability<a class="anchor-link" href="#iv.-Real-world-variability">¶</a></h3><p>OCT images may vary significantly based on the imaging technology used, the quality of the scan, and the demographics of the patients. These variations could impact the model's accuracy when deployed in real-world settings. Thus, it is important to validate the model on data from multiple sources and use cases to ensure robustness.</p>
@@ -7643,8 +7655,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="8.-Future-Work"><strong>8. Future Work</strong><a class="anchor-link" href="#8.-Future-Work">¶</a></h2><ul>
-<li>Expand dataset: The model could be further improved by incorporating more diverse OCT images from different populations, different types of AMD, and various imaging conditions.</li>
+<h2 id="9.-Future-Work"><strong>9. Future Work</strong><a class="anchor-link" href="#9.-Future-Work">¶</a></h2><ul>
+<li>Expand dataset: The model could be further improved by incorporating more diverse OCT images from different populations, different types of AMD, and various imaging cond</li>
+<li>itions.</li>
 <li>Model enhancement: Experiment with advanced models like transformers or ensemble methods for potentially better performance.</li>
 <li>Real-world testing: Deploy the model in clinical settings to assess its utility in real-world scenarios and integrate it into diagnostic workflows for ophthalmologists.</li>
 </ul>
@@ -7658,7 +7671,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-Conclusion"><strong>9. Conclusion</strong><a class="anchor-link" href="#9.-Conclusion">¶</a></h2><p>This project demonstrates the use of YOLOv8, a deep learning model, to classify AMD in OCT images. The model successfully classified OCT images into Dry AMD, Wet AMD, and Normal, providing a valuable tool for ophthalmologists in the early detection and diagnosis of AMD.</p>
+<h2 id="10.-Conclusion"><strong>10. Conclusion</strong><a class="anchor-link" href="#10.-Conclusion">¶</a></h2><p>This project demonstrates the use of YOLOv8, a deep learning model, to classify AMD in OCT images. The model successfully classified OCT images into Dry AMD, Wet AMD, and Normal, providing a valuable tool for ophthalmologists in the early detection and diagnosis of AMD.</p>
 </div>
 </div>
 </div>
